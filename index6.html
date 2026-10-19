@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout - codegymtask25</title>
+    <style>
+        /* CSS Reset cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Bố cục tổng thể (Container) */
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Chiếm 100% chiều cao màn hình */
+        }
+
+        .header, .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        /* Khu vực chứa Nội dung chính & Sidebar */
+        .main-container {
+            display: flex;
+            flex: 1; /* Tự giãn ra chiếm phần không gian còn lại giữa Nav và Footer */
+        }
+
+        .content {
+            flex: 3; /* Content chiếm 3 phần */
+            background-color: #e2e2e2;
+            padding: 20px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar {
+            flex: 1; /* Sidebar chiếm 1 phần */
+            background-color: #f4f4f4;
+            padding: 20px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive với Media Queries cho Mobile (màn hình < 768px) */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column; /* Đổi trục thành cột dọc */
+            }
+            .content {
+                min-height: 300px; /* Đảm bảo content không bị móp lại trên điện thoại */
+            }
+            .sidebar {
+                min-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">Header</header>
+        
+        <nav class="nav">Navigation</nav>
+        
+        <div class="main-container">
+            <main class="content">Main Content (Tỷ lệ 3)</main>
+            <aside class="sidebar">Sidebar (Tỷ lệ 1)</aside>
+        </div>
+        
+        <footer class="footer">Footer</footer>
+    </div>
+
+</body>
+</html>
